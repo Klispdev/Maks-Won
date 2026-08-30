@@ -1,0 +1,53 @@
+MAKS - COMO CONFIGURAR ANTES DE PUBLICAR
+==========================================
+
+1) SUBIR PARA O GITHUB
+   Crie um repositorio e suba TODO o conteudo deste zip para a raiz dele
+   (config.xml, www/, uploads/, res/, .github/). Isso serve pra gerar o
+   PRIMEIRO .apk do proprio Maks.
+
+2) CONEXAO COM O GITHUB (para o botao "Novo projeto" funcionar dentro do app)
+   Cada pessoa que for gerar um .apk conecta SEU PROPRIO GitHub dentro do
+   app, em Configuracoes -> Conectar GitHub:
+     a. Cria um repositorio vazio no GitHub (publico ou privado), so com
+        um README.
+     b. Gera um token em GitHub -> Settings -> Developer settings ->
+        Personal access tokens -> Tokens (classic) -> Generate new token,
+        com os escopos "repo" e "workflow".
+     c. Cola o token no app e toca em "Ver meus repositorios" pra
+        escolher o repositorio direto de uma lista.
+   A partir dai o APP MESMO configura esse repositorio (manda o
+   config.xml, o workflow de build e o icone) antes de cada envio -
+   ninguem precisa subir esses arquivos na mao. Isso e o que evita o
+   erro de "workflow nao encontrado" ao enviar um .zip.
+
+   Obs: o GitHub nao permite fazer essa conexao por um pop-up de login
+   sem um servidor guardando uma credencial secreta - por isso e por
+   token, e nao por um botao "Entrar com GitHub".
+
+3) CONTAS SO COM @gmail.com
+   Login e cadastro so aceitam e-mails terminados em @gmail.com.
+
+4) PROJETOS EXCLUIDOS
+   Configuracoes -> Projetos excluidos mostra tudo que foi apagado, com
+   opcao de Recuperar ou Excluir permanente (some de vez).
+
+5) FONTE DO NOME "Maks"
+   O nome do app usa a fonte Bangers (Google Fonts, gratuita e liberada
+   para uso comercial/redistribuicao). A fonte "Manga Temple" que foi
+   pedida e freeware SOMENTE para uso pessoal e proibe expressamente
+   "embedding, redistribution ou webfont use" - ou seja, nao pode ir
+   dentro de um app distribuido publicamente sem licenca comercial da
+   Blambot (blambot.com). Por isso ela nao foi embutida no app.
+
+SOBRE "REFAZER" QUANDO O BUILD FALHA
+   Quando um build falha, o app busca no GitHub Actions QUAL etapa
+   quebrou (ex: "Falhou na etapa: Compilando APK") e mostra isso na tela,
+   em vez de um erro generico. O botao "Refazer" reenvia o mesmo .zip -
+   isso resolve falhas passageiras do GitHub Actions. Ele nao reescreve
+   automaticamente o codigo do projeto enviado: isso exigiria uma IA
+   analisando o log com uma chave de API guardada num servidor - nao da
+   pra colocar uma chave dessas dentro de um app que todo mundo baixa.
+
+Repositorios publicos tem minutos ilimitados no GitHub Actions;
+privados tem um limite mensal gratuito.
