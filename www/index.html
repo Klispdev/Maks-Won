@@ -990,7 +990,7 @@
     try{
       updateStage(email, id, 'setup', 'Configurando repositório…');
       await ensureRepoSetup(cfg);
-      await pushProjectConfigXml(cfg, projName, id);
+      await pushProjectConfigXml(cfg, projName, 'com.maks.build.' + id);
       updateStage(email, id, 'uploading', 'Enviando arquivo para o GitHub…');
       var base64 = await fileToBase64(file);
       var commitMsg = 'build: ' + id;
