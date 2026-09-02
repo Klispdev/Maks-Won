@@ -51,3 +51,23 @@ SOBRE "REFAZER" QUANDO O BUILD FALHA
 
 Repositorios publicos tem minutos ilimitados no GitHub Actions;
 privados tem um limite mensal gratuito.
+
+ATUALIZACOES:
+
+6) ICONE PROPRIO DE CADA PROJETO
+   Se o .zip enviado tiver um icon.png, logo.png ou favicon.png na raiz
+   (ou em img/, images/ ou assets/), o app instalado usa essa imagem como
+   icone - nao fica mais com a carinha do Maks. Se nao encontrar nenhum,
+   usa o icone padrao do Maks mesmo.
+
+7) ATUALIZAR SEM PERDER DADOS (debug.keystore)
+   O arquivo debug.keystore na raiz do repositorio garante que todo build
+   seja assinado com a MESMA chave. Isso e o que permite instalar uma
+   versao nova do Maks por cima da antiga como ATUALIZACAO (Android exige
+   a mesma assinatura pra aceitar isso) - sem precisar desinstalar e sem
+   perder contas/projetos salvos no aparelho.
+   Importante: isso so funciona se voce continuar usando o MESMO
+   repositorio para atualizar o Maks. Nao use esse mesmo repositorio para
+   testar o "Novo projeto" com outros zips - isso mudaria a identidade do
+   app e quebraria a atualizacao. Use um repositorio separado pra testes
+   (como voce ja vem fazendo com o Testes-Maks).
